@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>ru.opencode.newproject</groupId>
+  <artifactId>new-project</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>war</packaging>
+
+  <properties>
+    <java.version>1.8</java.version>
+    <h2.version>1.4.200</h2.version>
+    <javax.validation.version>2.0.1.Final</javax.validation.version>
+    <javax.servlet.version>1.2</javax.servlet.version>
+    <tomcat.jasper.version>9.0.27</tomcat.jasper.version>
+    <spring.security.taglibs.version>5.2.0.RELEASE</spring.security.taglibs.version>
+    <spring.boot.starter.version>2.1.6.RELEASE</spring.boot.starter.version>
+  </properties>
+
+    <dependencies>
+
+      <!-- SPRING -->
+
+      <dependency>
+        <!-- Its dependency need for start App (has a built-in server Tomcat)
+                   & for implementations of WebMvcConfigurer
+        in the config class MvcConfig
+        (package org.opencode.project.config.MvcConfig)
+        -->
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-web</artifactId>
+        <version>${spring.boot.starter.version}</version>
+      </dependency>
+
+      <dependency>
+        <!-- Starter for start using Spring Security
+       necessary for: AuthenticationManagerBuilder, HttpSecurity, @EnableWebSecurity
+       in the web config class WebSecurityConfig
+       (package org.opencode.project.config.WebSecurityConfig)
+      -->
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-security</artifactId>
+        <version>${spring.boot.starter.version}</version>
+      </dependency>
+
+      <dependency>
+        <!--Starter for using Spring Data JPA with Hibernate
+       used to work with the database
+       (package org.opencode.project.model.Role) (package org.opencode.project.repository.RoleRepository)
+       (package org.opencode.project.model.User) (package org.opencode.project.repository.UserRepository)
+       -->
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-data-jpa</artifactId>
+        <version>${spring.boot.starter.version}</version>
+      </dependency>
+
+      <dependency>
+        <!-- it's dependency using for
+         -->
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-devtools</artifactId>
+        <version>${spring.boot.starter.version}</version>
+      </dependency>
+
+
+      <dependency>
+        <!-- it's dependency using for activate security in our views
+      (WEB-INF.jsp.login)
+      -->
+        <groupId>org.springframework.security</groupId>
+        <artifactId>spring-security-taglibs</artifactId>
+        <version>${spring.security.taglibs.version}</version>
+      </dependency>
+
+      <!-- SPRING -->
+
+      <dependency>
+        <!-- it's dependency using for in our views
+          (WEB-INF.jsp)
+        -->
+        <groupId>javax.servlet</groupId>
+        <artifactId>jstl</artifactId>
+        <version>${javax.servlet.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+        <version>1.18.20</version>
+        <scope>provided</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>org.apache.tomcat.embed</groupId>
+        <artifactId>tomcat-embed-jasper</artifactId>
+        <version>${tomcat.jasper.version}</version>
+      </dependency>
+
+      <!-- Validation -->
+
+      <dependency>
+        <!-- this is a dependency using to validate our data
+        -->
+        <groupId>javax.validation</groupId>
+        <artifactId>validation-api</artifactId>
+        <version>${javax.validation.version}</version>
+      </dependency>
+
+      <!-- Data -->
+
+      <dependency>
+        <!-- it's dependency using for create DB and work with data
+        -->
+        <groupId>com.h2database</groupId>
+        <artifactId>h2</artifactId>
+        <version>${h2.version}</version>
+        <scope>runtime</scope>
+      </dependency>
+
+    </dependencies>
+
+<build>
+<plugins>
+  <plugin>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-maven-plugin</artifactId>
+  </plugin><plugin>
+  <groupId>org.apache.maven.plugins</groupId>
+  <artifactId>maven-compiler-plugin</artifactId>
+  <configuration>
+    <source>8</source>
+    <target>8</target>
+  </configuration>
+</plugin>
+</plugins>
+</build>
+
+</project>
