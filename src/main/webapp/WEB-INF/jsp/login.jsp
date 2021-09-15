@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/style.css">
-    <title>Log in with your account</title>
+    <title>Вход</title>
 </head>
 
 <body>
@@ -33,7 +33,7 @@
         </div>
 
         <div class="button_login">
-            <button type="submit">Log In</button>
+            <button type="submit">Войти</button>
         </div>
     </form>
 </div>

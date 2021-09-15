@@ -7,19 +7,23 @@
 <head>
     <title>Главная</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/style.css">
+    <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/mainPageStyle.css">
 </head>
 <body>
 <div>
-    <h3>${pageContext.request.userPrincipal.name}</h3>
+    <h1>Здравствуйте,${pageContext.request.userPrincipal.name}</h1>
     <sec:authorize access="!isAuthenticated()">
-        <h4><a href="/login">Войти</a></h4>
-        <h4><a href="/registration">Зарегистрироваться</a></h4>
+        <h2><a href="/login">Войти</a></h2>
+        <h3><a href="/registration">Зарегистрироваться</a></h3>
     </sec:authorize>
     <sec:authorize access="isAuthenticated()">
         <h4><a href="/logout">Выйти</a></h4>
     </sec:authorize>
-    <h4><a href="/admin">Пользователи</a></h4>
+    <sec:authorize access="hasAnyRole('ROLE_ADMIN')" >
+        <h6><a href="/admin">Пользователи</a></h6>
+    </sec:authorize>
+    <h5><a href="/gamebullcow">Играть!</a> </h5>
+
 </div>
 </body>
 </html>

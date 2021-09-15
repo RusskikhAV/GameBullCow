@@ -1,0 +1,31 @@
+h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 150%;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    color: #336
+}
+h2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100%;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    color: black;
+}
+.spoiler input, .spoiler div  {
+    display: none;
+}
+.spoiler :checked ~ div {
+    display: block;
+}
+/* Закрытый спойлер */
+.spoiler label::before {
+    content: '►';
+    margin-right: 5px;
+}
+/* Открытый спойлер */
+.spoiler :checked + label::before {
+    content: '▼';
+}
